@@ -8,4 +8,5 @@ RUN npm install
 COPY . .
 
 EXPOSE 3000
-CMD ["node", "index.js"]
+COPY wait-for-it.sh ./
+CMD ["./wait-for-it.sh", "db:3306", "--", "node", "index.js"]
