@@ -25,6 +25,7 @@ app.post('/react', async (req, res) => {
     VALUES (?, 1)
     ON DUPLICATE KEY UPDATE count = count + 1
   `, [emoji]);
+  console.log("post request: " + emoji);
   res.sendStatus(200);
 });
 
