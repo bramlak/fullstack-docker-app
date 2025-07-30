@@ -8,6 +8,7 @@ A simple full-stack emoji reaction web app built with React (Vite) on the fronte
 - Express backend with REST API
 - MariaDB database to store emoji counts
 - Docker Compose orchestration for services
+- Load balancing across multiple backend replicas via Nginx
 
 ## 📦 Requirements
 - `docker`, `docker-compose` and `npm` packages
@@ -55,9 +56,18 @@ Open your browser and go to: http://localhost
 ## 🧪 Tech Stack
 
 - **Frontend**: React (Vite), served via Nginx
-- **Backend**: Node.js, Express
+- **Backend**: Node.js, Express (deployed in 3 replicas)
 - **Database**: MariaDB
 - **Containerization**: Docker, Docker Compose
+- **Networking**: Internal Docker bridge network (app-network)
+- **Load Balancer**: Nginx proxies traffic to multiple backend containers
+
+## 🛠 Troubleshooting
+
+- Rebuild and restart:  
+```bash
+docker compose down -v && docker compose up --build
+```
 
 ## 📁 Folder Structure
 ```
